@@ -4,13 +4,13 @@
 // Copyright (C) 2012 - 2016 jones@scss.tcd.ie
 //
 
-#include "stdafx.h"         // pre-compiled headers
-#include <iostream>         // cout
-#include "conio.h"          // _getch
-#include "t1.h"             //
-#include "fib32.h"          //
+#include "stdafx.h"        
+#include <iostream>       
+#include "conio.h"         
+#include "t1.h"             
+#include "fib32.h"          
 
-using namespace std;        // cout
+using namespace std; 
 
 //
 // fib: C++
@@ -58,9 +58,9 @@ int fib_IA32(int n)
 //
 // check
 //
-void check(char *s, int v, int val)
+void check(char *s, int i, int v, long val)
 {
-    cout << s << " = " << v;
+    cout << s  << "(" << i << ")" << " = " << v;
     if (v == val) {
         cout << " OK";
     } else {
@@ -77,39 +77,16 @@ int _tmain(int argc, _TCHAR* argv[])
     //
     // tutorial 1
     //
-    check("g", g, 256);
-    check("p(1, 2)", p(1, 2), 11);
-    check("q(2)", q(2), 1015);
-    check("f(6)", f(6), 720);
+    //check("g", g, 256);
+    //check("p(1, 2)", p(1, 2), 11);
+    //check("q(2)", q(2), 1015);
+    
+	cout << endl;
+	for (int i = 1; i < 11; i++) {
+		check("f", i, f(i), f(i));
+	}
     cout << endl;
 
-    //
-    // fib: C++
-    //
-    for (int i = -1; i < 20; i++)
-        cout << fib(i) << " ";
-    cout << endl;
-
-    //
-    // fib: mixed C++ and assmbly language
-    //
-    for (int i = -1; i < 20; i++)
-        cout << fib_IA32(i) << " ";
-    cout << endl;
-
-    //
-    // fib: IA32 assembly language  unoptimised (Debug!)
-    //
-    for (int i = -1; i < 20; i++)
-        cout << fib_IA32a(i) << " ";
-    cout << endl;
-
-    //
-    // fib: IA32 assembly language optimised (Release!)
-    //
-    for (int i = -1; i < 20; i++)
-        cout << fib_IA32b(i) << " ";
-    cout << endl;
 
     _getch();
 
